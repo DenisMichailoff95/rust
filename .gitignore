@@ -1,0 +1,15 @@
+# Rust build artifacts
+/target/
+**/target/
+
+# Cargo lockfile (optional for libraries, usually kept for apps)
+/Cargo.lock
+
+# VS Code settings and workspace state
+.vscode/
+
+# macOS / editor noise
+.DS_Store
+
+# Rust analyzer cache
+/.cargo/

@@ -1,0 +1,28 @@
+{
+    "folders": [
+        {
+            "path": ".",
+            "name": "Rust Workspace"
+        },
+        {
+            "path": "hello_world",
+            "name": "🌍 Hello World"
+        },
+        {
+            "path": "postgres_console_app",
+            "name": "🐘 Postgres App"
+        },
+        {
+            "path": "guessing_game",
+            "name": "🎮 Guessing Game"
+        }
+    ],
+    "settings": {
+        "rust-analyzer.linkedProjects": [
+            "**/Cargo.toml"
+        ],
+        "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+        "rust-analyzer.procMacro.enable": true,
+        "rust-analyzer.checkOnSave.command": "clippy"
+    }
+}

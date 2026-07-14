@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "hello_world",
+    "guessing_game",
+    "postgres_console_app",
+]
+resolver = "2"

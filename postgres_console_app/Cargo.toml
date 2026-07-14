@@ -1,0 +1,13 @@
+[package]
+name = "postgres_console_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio-postgres = { version = "0.7", features = ["with-chrono-0_4"] }
+tokio = { version = "1", features = ["full", "rt-multi-thread"] }
+chrono = "0.4"
+anyhow = "1.0"
+
+# Добавьте эти зависимости для работы с асинхронным рантаймом
+[dev-dependencies]
