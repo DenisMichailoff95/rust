@@ -5,5 +5,10 @@ members = [
     "postgres_console_app",
     "learning_rust",
     "learning_rust_tests",
+    "level1_task1_temperature",
+    "level1_task2_circle_area",
+    "level1_task3_sum_of_squares",
+    "level1_task4_is_prime",
+    "level1_task5_array_processing",
 ]
 resolver = "2"

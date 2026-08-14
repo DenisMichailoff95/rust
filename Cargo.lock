@@ -330,6 +330,26 @@ name = "learning_rust_tests"
 version = "0.1.0"
 
 [[package]]
+name = "level1_task1_temperature"
+version = "0.1.0"
+
+[[package]]
+name = "level1_task2_circle_area"
+version = "0.1.0"
+
+[[package]]
+name = "level1_task3_sum_of_squares"
+version = "0.1.0"
+
+[[package]]
+name = "level1_task4_is_prime"
+version = "0.1.0"
+
+[[package]]
+name = "level1_task5_array_processing"
+version = "0.1.0"
+
+[[package]]
 name = "libc"
 version = "0.2.186"
 source = "registry+https://github.com/rust-lang/crates.io-index"
