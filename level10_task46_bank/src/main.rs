@@ -38,7 +38,13 @@ fn main() {
                 println!("Owner:");
                 let mut owner = String::new();
                 std::io::stdin().read_line(&mut owner).unwrap();
-                accounts.insert(id, BankAccount { owner: owner.trim().to_string(), balance: 0.0 });
+                accounts.insert(
+                    id,
+                    BankAccount {
+                        owner: owner.trim().to_string(),
+                        balance: 0.0,
+                    },
+                );
                 println!("Created id={}", id);
                 id += 1;
             }

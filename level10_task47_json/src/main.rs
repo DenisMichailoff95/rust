@@ -9,6 +9,9 @@ fn to_json(p: &Person) -> String {
 }
 
 fn main() {
-    let p = Person { name: String::from("Alice \"A\""), age: 30 };
+    let p = Person {
+        name: String::from("Alice \"A\""),
+        age: 30,
+    };
     println!("{}", to_json(&p));
 }

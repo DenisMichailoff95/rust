@@ -18,8 +18,14 @@ impl Rectangle {
 }
 
 fn main() {
-    let r1 = Rectangle { width: 10.0, height: 5.0 };
-    let r2 = Rectangle { width: 3.0, height: 2.0 };
+    let r1 = Rectangle {
+        width: 10.0,
+        height: 5.0,
+    };
+    let r2 = Rectangle {
+        width: 3.0,
+        height: 2.0,
+    };
     println!("Area: {}", r1.area());
     println!("Perimeter: {}", r1.perimeter());
     println!("Can hold r2: {}", r1.can_hold(&r2));

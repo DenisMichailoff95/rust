@@ -1,5 +1,5 @@
-use std::io;
 use rand::Rng;
+use std::io;
 
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum Move {
@@ -9,10 +9,9 @@ enum Move {
 }
 
 fn beats(a: Move, b: Move) -> bool {
-    matches!((a, b),
-        (Move::Rock, Move::Scissors) |
-        (Move::Paper, Move::Rock) |
-        (Move::Scissors, Move::Paper)
+    matches!(
+        (a, b),
+        (Move::Rock, Move::Scissors) | (Move::Paper, Move::Rock) | (Move::Scissors, Move::Paper)
     )
 }
 
