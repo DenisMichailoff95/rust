@@ -1,0 +1,6 @@
+[package]
+name = "level6_task26_safe_div"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

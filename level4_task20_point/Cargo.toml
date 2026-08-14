@@ -1,0 +1,6 @@
+[package]
+name = "level4_task20_point"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

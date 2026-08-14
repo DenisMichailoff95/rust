@@ -1,0 +1,6 @@
+[package]
+name = "level9_task44_priority_queue"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
