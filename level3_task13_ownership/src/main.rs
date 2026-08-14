@@ -3,7 +3,7 @@ fn take_ownership(v: Vec<i32>) {
     println!("Sum: {sum}");
 }
 
-fn borrow_sum(v: &Vec<i32>) -> i32 {
+fn borrow_sum(v: &[i32]) -> i32 {
     v.iter().sum()
 }
 
@@ -12,4 +12,7 @@ fn main() {
     let sum = borrow_sum(&v);
     println!("Sum via borrow: {sum}");
     println!("Vector still usable: {:?}", v);
+
+    let v2 = vec![1, 2, 3];
+    take_ownership(v2);
 }

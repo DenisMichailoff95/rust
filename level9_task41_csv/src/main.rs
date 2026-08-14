@@ -1,4 +1,3 @@
-use std::io;
 
 struct Person {
     name: String,
@@ -9,18 +8,17 @@ struct Person {
 fn parse_csv(text: &str) -> Vec<Person> {
     let mut people = Vec::new();
     let mut lines = text.lines();
-    if let Some(header) = lines.next() {
+    if let Some(_header) = lines.next() {
         for line in lines {
             let parts: Vec<&str> = line.split(',').collect();
-            if parts.len() == 3 {
-                if let (Ok(age), name, city) = (parts[1].parse::<u32>(), parts[0], parts[2]) {
+            if parts.len() == 3
+                && let (Ok(age), name, city) = (parts[1].parse::<u32>(), parts[0], parts[2]) {
                     people.push(Person {
                         name: name.to_string(),
                         age,
                         city: city.to_string(),
                     });
                 }
-            }
         }
     }
     people

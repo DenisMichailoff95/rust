@@ -8,14 +8,14 @@ enum Command {
 
 fn parse_command(input: &str) -> Option<Command> {
     let parts: Vec<&str> = input.split_whitespace().collect();
-    match parts.get(0)? {
-        &"quit" => Some(Command::Quit),
-        &"add" => {
+    match *parts.first()? {
+        "quit" => Some(Command::Quit),
+        "add" => {
             let a: f64 = parts.get(1)?.parse().ok()?;
             let b: f64 = parts.get(2)?.parse().ok()?;
             Some(Command::Add(a, b))
         }
-        &"sub" => {
+        "sub" => {
             let a: f64 = parts.get(1)?.parse().ok()?;
             let b: f64 = parts.get(2)?.parse().ok()?;
             Some(Command::Sub(a, b))

@@ -1,5 +1,3 @@
-use std::io;
-
 #[derive(Debug)]
 enum Operation {
     Add,
@@ -25,5 +23,7 @@ fn apply(op: Operation, a: f64, b: f64) -> Option<f64> {
 
 fn main() {
     println!("{:?}", apply(Operation::Add, 10.0, 5.0));
+    println!("{:?}", apply(Operation::Subtract, 10.0, 5.0));
+    println!("{:?}", apply(Operation::Multiply, 10.0, 5.0));
     println!("{:?}", apply(Operation::Divide, 10.0, 0.0));
 }

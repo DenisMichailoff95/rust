@@ -1,3 +1,4 @@
+#[allow(clippy::ptr_arg)]
 fn calculate_length(s: &String) -> usize {
     s.len()
 }

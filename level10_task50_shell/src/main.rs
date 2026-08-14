@@ -10,12 +10,12 @@ enum Command {
 
 fn parse(input: &str) -> Option<Command> {
     let parts: Vec<&str> = input.split_whitespace().collect();
-    match parts.get(0)? {
-        &"cd" => Some(Command::Cd(parts.get(1)?.to_string())),
-        &"pwd" => Some(Command::Pwd),
-        &"ls" => Some(Command::Ls),
-        &"history" => Some(Command::History),
-        &"exit" => Some(Command::Exit),
+    match *parts.first()? {
+        "cd" => Some(Command::Cd(parts.get(1)?.to_string())),
+        "pwd" => Some(Command::Pwd),
+        "ls" => Some(Command::Ls),
+        "history" => Some(Command::History),
+        "exit" => Some(Command::Exit),
         _ => None,
     }
 }

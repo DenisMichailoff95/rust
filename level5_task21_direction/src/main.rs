@@ -1,5 +1,3 @@
-use std::io;
-
 #[derive(Debug)]
 enum Direction {
     Up,
@@ -19,6 +17,8 @@ fn move_point(pos: (i32, i32), dir: Direction) -> (i32, i32) {
 
 fn main() {
     let pos = (0, 0);
-    let dir = Direction::Up;
-    println!("{:?}", move_point(pos, dir));
+    println!("{:?}", move_point(pos, Direction::Up));
+    println!("{:?}", move_point(pos, Direction::Down));
+    println!("{:?}", move_point(pos, Direction::Left));
+    println!("{:?}", move_point(pos, Direction::Right));
 }
