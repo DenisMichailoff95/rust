@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@1.94.1
       - run: cargo check --workspace
       - run: cargo clippy --workspace -- -D warnings
       - run: cargo fmt -- --check
