@@ -3,5 +3,7 @@ members = [
     "hello_world",
     "guessing_game",
     "postgres_console_app",
+    "learning_rust",
+    "learning_rust_tests",
 ]
 resolver = "2"

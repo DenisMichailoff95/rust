@@ -1,15 +1,31 @@
 # Rust build artifacts
-/target/
+target/
 **/target/
 
-# Cargo lockfile (optional for libraries, usually kept for apps)
-/Cargo.lock
+# Cargo lockfile for libraries, kept for apps
+*/Cargo.lock
+
+# Cargo local registry and config
+.cargo/
+.cargo/config.toml
+
+# Rust analyzer cache
+.rust-analyzer/
 
 # VS Code settings and workspace state
 .vscode/
 
 # macOS / editor noise
 .DS_Store
+.idea/
+*.swp
+*.swo
+*~
 
-# Rust analyzer cache
-/.cargo/
+# Environment files
+.env
+.env.local
+secrets.toml
+
+# PostgreSQL credentials (if used)
+postgres_console_app/.env
