@@ -1,15 +1,14 @@
 // use std::io;
 
-
 fn main() {
-    let mut my_string: String= "My String".into();
+    let mut my_string: String = "My String".into();
     my_string = my_string.to_owned() + " " + &my_string;
-    
+
     let var;
-{
-    var = 4096;
-    println!("{}", var);
-}
+    {
+        var = 4096;
+        println!("{}", var);
+    }
     println!("{}", var);
 
     println!("{}", my_string);
@@ -29,32 +28,28 @@ fn main() {
 
     println!("{:?}", data8);
 
-
     #[derive(Debug)]
     struct DataStructure {
-        data: (char, char, char, char),
-        manual: (u8, u8, u8, u8),
+        _data: (char, char, char, char),
+        _manual: (u8, u8, u8, u8),
     }
 
     let instance = DataStructure {
-        data: data8,
-        manual: (1, 2, 3, 4),
+        _data: data8,
+        _manual: (1, 2, 3, 4),
     };
 
     println!("{:?}", instance);
 
     #[derive(Debug)]
+    #[allow(dead_code)]
     enum Foo {
         Bar,
         Baz(u32, u64),
-        Zoo {
-            flag: bool
-        },
+        Zoo { _flag: bool },
     }
 
     println!("{:?}", Foo::Bar);
     println!("{:?}", Foo::Baz(1, 2));
-    println!("{:?}", Foo::Zoo { flag: true });
-
-
+    println!("{:?}", Foo::Zoo { _flag: true });
 }

@@ -2,7 +2,7 @@ use rand::Rng;
 use std::io::{self, Read};
 
 fn main() {
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let secret_number = rand::rng().random_range(1..=100);
 
     let mut input = String::new();
     io::stdin()
