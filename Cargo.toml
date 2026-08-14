@@ -10,5 +10,10 @@ members = [
     "level1_task3_sum_of_squares",
     "level1_task4_is_prime",
     "level1_task5_array_processing",
+    "level2_task6_count_vowels",
+    "level2_task7_reverse_string",
+    "level2_task8_first_word",
+    "level2_task9_is_palindrome",
+    "level2_task10_even_numbers",
 ]
 resolver = "2"

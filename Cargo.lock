@@ -350,6 +350,26 @@ name = "level1_task5_array_processing"
 version = "0.1.0"
 
 [[package]]
+name = "level2_task10_even_numbers"
+version = "0.1.0"
+
+[[package]]
+name = "level2_task6_count_vowels"
+version = "0.1.0"
+
+[[package]]
+name = "level2_task7_reverse_string"
+version = "0.1.0"
+
+[[package]]
+name = "level2_task8_first_word"
+version = "0.1.0"
+
+[[package]]
+name = "level2_task9_is_palindrome"
+version = "0.1.0"
+
+[[package]]
 name = "libc"
 version = "0.2.186"
 source = "registry+https://github.com/rust-lang/crates.io-index"

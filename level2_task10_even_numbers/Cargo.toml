@@ -1,0 +1,6 @@
+[package]
+name = "level2_task10_even_numbers"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
