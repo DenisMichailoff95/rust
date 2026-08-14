@@ -6,7 +6,9 @@ struct PriorityQueue<T: Ord> {
 
 impl<T: Ord> PriorityQueue<T> {
     fn new() -> Self {
-        PriorityQueue { heap: BinaryHeap::new() }
+        PriorityQueue {
+            heap: BinaryHeap::new(),
+        }
     }
 
     fn push(&mut self, item: T) {

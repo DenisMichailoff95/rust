@@ -2,7 +2,11 @@ use std::collections::VecDeque;
 
 type Maze = Vec<Vec<u8>>;
 
-fn solve(maze: &mut Maze, start: (usize, usize), end: (usize, usize)) -> Option<Vec<(usize, usize)>> {
+fn solve(
+    maze: &mut Maze,
+    start: (usize, usize),
+    end: (usize, usize),
+) -> Option<Vec<(usize, usize)>> {
     let mut queue = VecDeque::new();
     queue.push_back((start, vec![start]));
     let dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)];
@@ -29,11 +33,7 @@ fn solve(maze: &mut Maze, start: (usize, usize), end: (usize, usize)) -> Option<
 }
 
 fn main() {
-    let mut maze = vec![
-        vec![1, 0, 1, 1],
-        vec![1, 1, 0, 1],
-        vec![0, 1, 1, 1],
-    ];
+    let mut maze = vec![vec![1, 0, 1, 1], vec![1, 1, 0, 1], vec![0, 1, 1, 1]];
     if let Some(path) = solve(&mut maze, (0, 0), (3, 2)) {
         println!("Path found: {:?}", path);
     } else {
