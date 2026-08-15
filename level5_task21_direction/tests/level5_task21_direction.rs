@@ -13,5 +13,8 @@ fn test_move_point_multiple() {
     let pos = (5, 5);
     assert_eq!(move_point(pos, Direction::Up), (5, 6));
     assert_eq!(move_point(pos, Direction::Right), (6, 5));
-    assert_eq!(move_point(move_point(pos, Direction::Up), Direction::Left), (4, 6));
+    assert_eq!(
+        move_point(move_point(pos, Direction::Up), Direction::Left),
+        (4, 6)
+    );
 }

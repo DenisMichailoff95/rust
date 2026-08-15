@@ -10,5 +10,8 @@ fn test_get_env_var_or_default() {
 fn test_get_env_var_missing() {
     let result = get_env_var_or_default("NONEXISTENT_VAR_12345");
     assert!(result.is_err());
-    assert_eq!(result.unwrap_err(), "Env var 'NONEXISTENT_VAR_12345' not set");
+    assert_eq!(
+        result.unwrap_err(),
+        "Env var 'NONEXISTENT_VAR_12345' not set"
+    );
 }
