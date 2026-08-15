@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use std::cmp::Ordering;
 
 pub fn run_game_with_secret(secret_number: u32, input: &str) -> String {
