@@ -1,5 +1,3 @@
-use level8_task37_sum_squares_odd::*;
-
 #[test]
 fn test_sum_squares_odd() {
     let sum: i32 = (1..100).filter(|x| x % 2 != 0).map(|x| x * x).sum();

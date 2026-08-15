@@ -2,7 +2,7 @@ use level4_task19_stack::*;
 
 #[test]
 fn test_stack_new() {
-    let mut stack: Stack<i32> = Stack::new();
+    let stack: Stack<i32> = Stack::new();
     assert!(stack.data.is_empty());
 }
 

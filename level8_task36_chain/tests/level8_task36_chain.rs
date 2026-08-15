@@ -1,5 +1,3 @@
-use level8_task36_chain::*;
-
 #[test]
 fn test_chain_evens_squared() {
     let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
