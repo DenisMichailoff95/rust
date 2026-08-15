@@ -7,24 +7,30 @@ struct DatabaseManager {
 }
 
 impl DatabaseManager {
-    async fn connect(host: &str, port: &str, dbname: &str, user: &str, password: &str) -> Result<Self, anyhow::Error> {
+    async fn connect(
+        host: &str,
+        port: &str,
+        dbname: &str,
+        user: &str,
+        password: &str,
+    ) -> Result<Self, anyhow::Error> {
         let config_str = format!(
             "host={} port={} dbname={} user={} password={}",
             host, port, dbname, user, password
         );
-        
+
         let (client, connection) = tokio_postgres::connect(&config_str, NoTls).await?;
-        
+
         tokio::spawn(async move {
             if let Err(e) = connection.await {
                 eprintln!("Connection error: {}", e);
             }
         });
-        
+
         println!("Successfully connected to database!");
         Ok(DatabaseManager { client })
     }
-    
+
     async fn create_table(&self) -> Result<(), anyhow::Error> {
         self.client
             .execute(
@@ -36,43 +42,44 @@ impl DatabaseManager {
                 &[],
             )
             .await?;
-        
+
         Ok(())
     }
-    
+
     async fn insert_note(&self, note: &str) -> Result<(), anyhow::Error> {
         self.client
             .execute("INSERT INTO notes (note) VALUES ($1)", &[&note])
             .await?;
-        
+
         println!("Note added successfully!");
         Ok(())
     }
-    
+
     async fn display_all_notes(&self) -> Result<(), anyhow::Error> {
-        let rows = self.client
+        let rows = self
+            .client
             .query("SELECT id, note, created_at FROM notes ORDER BY id", &[])
             .await?;
-        
+
         if rows.is_empty() {
             println!("\nNo notes found in database.");
         } else {
             println!("\n{}", "=".repeat(80));
             println!("{:<5} {:<50} {:<25}", "ID", "Note", "Created At");
             println!("{}", "-".repeat(80));
-            
+
             // Используем ссылку на rows
             for row in &rows {
                 let id: i32 = row.get(0);
                 let note: &str = row.get(1);
                 let created_at: NaiveDateTime = row.get(2);
-                
+
                 let mut note_display = note.to_string();
                 if note_display.len() > 47 {
                     let truncated: String = note_display.chars().take(44).collect();
                     note_display = format!("{}...", truncated);
                 }
-                
+
                 println!(
                     "{:<5} {:<50} {:<25}",
                     id,
@@ -83,21 +90,22 @@ impl DatabaseManager {
             println!("{}", "=".repeat(80));
             println!("Total: {} note(s)", rows.len());
         }
-        
+
         Ok(())
     }
-    
+
     async fn delete_note(&self, id: i32) -> Result<(), anyhow::Error> {
-        let affected_rows = self.client
+        let affected_rows = self
+            .client
             .execute("DELETE FROM notes WHERE id = $1", &[&id])
             .await?;
-        
+
         if affected_rows > 0 {
             println!("Note deleted successfully!");
         } else {
             println!("Note with ID {} not found!", id);
         }
-        
+
         Ok(())
     }
 }
@@ -116,8 +124,8 @@ async fn main() -> Result<(), anyhow::Error> {
     let port = "5433";
     let dbname = "postgres";
     let user = "postgres";
-    let password = "alpine_password";  // Если пароль есть, укажите его
-    
+    let password = "alpine_password"; // Если пароль есть, укажите его
+
     let db = match DatabaseManager::connect(host, port, dbname, user, password).await {
         Ok(db) => db,
         Err(e) => {
@@ -125,12 +133,12 @@ async fn main() -> Result<(), anyhow::Error> {
             return Ok(());
         }
     };
-    
+
     if let Err(e) = db.create_table().await {
         eprintln!("Failed to create table: {}", e);
         return Ok(());
     }
-    
+
     loop {
         println!("\n=== Notes Database Manager ===");
         println!("1. Add new note");
@@ -139,9 +147,9 @@ async fn main() -> Result<(), anyhow::Error> {
         println!("4. Exit");
         print!("Choose option: ");
         io::stdout().flush().unwrap();
-        
+
         let choice = read_input("");
-        
+
         match choice.as_str() {
             "1" => {
                 let note = read_input("Enter your note: ");
@@ -176,6 +184,6 @@ async fn main() -> Result<(), anyhow::Error> {
             _ => println!("Invalid option! Please try again."),
         }
     }
-    
+
     Ok(())
 }

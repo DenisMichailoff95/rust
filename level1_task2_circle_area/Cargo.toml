@@ -1,0 +1,6 @@
+[package]
+name = "level1_task2_circle_area"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
