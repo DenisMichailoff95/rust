@@ -2,7 +2,7 @@ use level4_task18_student::*;
 
 #[test]
 fn test_student_average() {
-        let s = Student {
+    let s = Student {
         name: String::from("Alice"),
         grades: vec![5, 4, 3],
     };
@@ -11,7 +11,7 @@ fn test_student_average() {
 
 #[test]
 fn test_add_grade() {
-        let mut s = Student {
+    let mut s = Student {
         name: String::from("Alice"),
         grades: vec![5, 4],
     };
