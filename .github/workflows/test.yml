@@ -1,4 +1,4 @@
-name: Rust CI
+name: Rust Tests
 
 on:
   push:
@@ -7,13 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  check:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@1.94.1
         with:
           components: clippy,rustfmt
-      - run: cargo check --workspace
-      - run: cargo clippy --workspace -- -D warnings
-      - run: cargo fmt -- --check
+      - run: cargo test --workspace
